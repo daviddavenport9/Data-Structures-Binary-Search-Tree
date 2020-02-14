@@ -1,19 +1,32 @@
-#ifndef ITEMTYPE_H
-#define ITEMTYPE_H
+#include "ItemType.h"
+#include <iostream>
 
-enum Comparison {LESS, EQUAL, GREATER };
+using namespace std;
 
-class ItemType{
+  ItemType::ItemType(){
+    
+  }
 
-public : 
-  ItemType();
-  Comparison compareTo(ItemType) const;
-  int getValue() const;
-  void initialize(int number);
-  void print();
-  
-  
-private:
-  int value;
-};
-#endif
+ Comparison ItemType::compareTo(ItemType otherItem) const{
+  if (value < otherItem.value){
+    return LESS;
+    }
+  else if (value > otherItem.value){
+    return GREATER;
+    }
+  else{
+    return EQUAL;
+    }
+}
+
+  int ItemType::getValue() const{
+  return value;
+}
+
+  void ItemType::initialize(int number){
+   value = number; 
+}
+
+void ItemType::print(){
+  cout << value << " ";
+}
